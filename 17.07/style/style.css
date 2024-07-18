@@ -1,0 +1,183 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: #f1f1f1;
+    position: relative;
+}
+
+h1{
+    margin-top: 30px;
+}
+
+.loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f7f9fb;
+    transition: opacity 0.75s, visibility 0.75s;
+  }
+
+  .loader::after{
+    content: "";
+    width: 75px;
+    height: 75px;
+    border: 15px solid #dddddd;
+    border-top-color: #3c40c6;
+    border-radius: 50%;
+    animation: spin 1.5s linear infinite;
+  }
+  
+  @keyframes spin {
+    from{
+        transform: rotate(0turn);
+    }
+    to{
+        transform: rotate(1turn);
+    }
+  }
+
+.wrapper{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    align-items: center;
+}
+
+.result{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 30px;
+    padding: 30px;
+}
+
+.card{
+    position: relative;
+    padding: 16px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    border-radius: 8px;
+    transition: 0.5s;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.buttons{
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.info-btn , .delete-btn{
+    width: 100%;
+    width: 100px;
+    border: none;
+    padding: 8px;
+    border-radius: 8px;
+    color: white;
+    background-color: #4caf50;
+    cursor: pointer;
+}
+
+.blur{
+    z-index: 2;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(2px);
+}
+
+.delete-btn{
+    background-color: #f44336;
+}
+
+.card:hover{
+    transform: translateY(-8px);
+}
+
+.complete-inf-wrapper{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(2px);
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.complete-inf{
+    z-index: 3;
+    position: sticky;
+    top: 50%;
+    left: 50%;
+    max-width: 800px;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+}
+
+.profile{
+    display: flex;
+    align-items: center;
+}
+
+.profile img{
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+}
+
+.account-name{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.account-content{
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.address , .company , .about-himself{
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.close-btn{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+
+.inactive{
+    display: none;
+}
